@@ -595,16 +595,24 @@ article:hover, section:hover, aside:hover {
 }
 
 /* Glass effect for special elements */
+/* Glass effect for special elements */
 .glass {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--body-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 :root[color-scheme="dark"] .glass {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Add a specific text shadow for better readability in light mode */
+:root:not([color-scheme="dark"]) .glass {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive adjustments */
@@ -699,7 +707,7 @@ blockquote,
 article,
 section,
 aside {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Color scheme toggle animation */
