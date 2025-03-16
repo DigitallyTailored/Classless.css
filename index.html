@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classless CSS Framework Demo - No Class, All Style</title>
+    <link rel="stylesheet" href="classless.css">
+
+</head>
+<body>
+
+<style>
+
+    .toggle-container label {
+        display: block;
+    }
+    .toggle-container .toggle-label {
+        margin-left: 0.25em;
+    }
+
+    .toggle-container {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background-color: #000000;
+        border-radius: 0.375rem;
+        color: white;
+        padding: 0.5rem 1rem;
+        z-index: 1;
+    }
+
+</style>
+
+<div class="toggle-container">
+    <label class="switch">
+        <input type="checkbox" id="styleToggle" checked>
+        <span class="toggle-label on-label">On</span>
+    </label>
+    <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="toggle-label dark-label">🌙</span>
+    </label>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const styleToggle = document.getElementById('styleToggle');
+        const stylesheet = document.querySelector('link[href="classless.css"]');
+
+        styleToggle.addEventListener('change', function () {
+            stylesheet.disabled = !this.checked;
+        });
+    });
+</script>
+<script>
+    function setColorScheme(scheme) {
+        document.documentElement.setAttribute('color-scheme', scheme);
+        localStorage.setItem('color-scheme', scheme);
+    }
+
+    function getColorScheme() {
+        let scheme = localStorage.getItem('color-scheme');
+        if (scheme) {
+            return scheme;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    setColorScheme(getColorScheme());
+
+
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('change', function () {
+        setColorScheme(this.checked ? 'dark' : 'light');
+    });
+
+    // Set initial state of the toggle
+    darkModeToggle.checked = getColorScheme() === 'dark';
+</script>
+
+<header>
+    <h1>"Classless.css" Framework</h1>
+    <p>A lightweight CSS framework for websites with impeccable taste but zero desire to add classes. Like a tuxedo for your HTML—just put it on and look fabulous.</p>
+</header>
+
+<main>
+    <section>
+        <h2>Typography</h2>
+        <p>Words, but fancier.</p>
+
+        <h1>Heading Level 1</h1>
+        <h2>Heading Level 2</h2>
+        <h3>Heading Level 3</h3>
+        <h4>Heading Level 4</h4>
+        <h5>Heading Level 5</h5>
+        <h6>Heading Level 6</h6>
+
+        <p>This is a standard paragraph. Lorem ipsum dolor sit amet, which is Latin for "I forgot to write actual content."
+            Designers have been using this placeholder text since the 1500s, proving that procrastination is timeless.</p>
+
+        <p><strong>Bold text</strong> for when you're really serious and <em>italic text</em> for when you're being sarcastic.
+            You can also use <a href="#">links</a> which have proper hover states and indicate if they open in <a href="#" target="_blank">a new window</a>.</p>
+
+        <p><small>This is smaller text, perfect for legal disclaimers nobody reads.</small></p>
+
+        <p>Code can be displayed inline with <code>code tags</code> or in blocks:</p>
+
+        <h3>Pre without code</h3>
+        <pre>
+Roses are red,
+Violets are blue,
+This text is preformatted,
+And this poem is too.</pre>
+
+        <h3>Pre with code</h3>
+        <pre><code>// This function says hello
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('World'));</code></pre>
+
+        <h3>Inline code in a paragraph</h3>
+        <p>When writing about programming, it's often useful to include <code>inline code snippets</code> within your text. For example, <code>const</code> is used to declare constants in JavaScript, or that the <code>&lt;body&gt;</code> tag contains the main content of an HTML document.</p>
+
+        <blockquote>
+            "This blockquote makes me look profound and philosophical, even though I might just be quoting myself."
+            <footer>— Someone Who Thinks They're Famous</footer>
+        </blockquote>
+    </section>
+
+    <section>
+        <h2>Lists</h2>
+        <p>For when you need to organize your thoughts or groceries.</p>
+
+        <h3>Unordered List</h3>
+        <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item with nested list
+                <ul>
+                    <li>Nested item 1</li>
+                    <li>Nested item 2</li>
+                </ul>
+            </li>
+            <li>Fourth item</li>
+        </ul>
+
+        <h3>Ordered List</h3>
+        <ol>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item with nested list
+                <ol>
+                    <li>Nested item 1</li>
+                    <li>Nested item 2</li>
+                </ol>
+            </li>
+            <li>Fourth item</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Tables</h2>
+        <p>Excel's distant HTML cousin.</p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>john@example.com</td>
+                <td>Developer</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>jane@example.com</td>
+                <td>Designer</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td>Robert Johnson</td>
+                <td>robert@example.com</td>
+                <td>Manager</td>
+                <td>Inactive</td>
+            </tr>
+            <tr>
+                <td>Emily Davis</td>
+                <td>emily@example.com</td>
+                <td>Developer</td>
+                <td>Active</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Forms</h2>
+        <p>Where user data goes to live a fulfilling life.</p>
+
+        <form>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name">
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your.email@example.com">
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Make it stronger than your coffee">
+            </div>
+
+            <div>
+                <label for="role">Role</label>
+                <select id="role">
+                    <option value="">Select a role</option>
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="manager">Manager</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Your message here"></textarea>
+            </div>
+
+            <div>
+                <label>
+                    <input type="checkbox"> I agree to the terms and conditions
+                </label>
+            </div>
+
+            <div>
+                <p>Preferred contact method:</p>
+                <label>
+                    <input type="radio" name="contact" value="email"> Email
+                </label>
+                <label>
+                    <input type="radio" name="contact" value="phone"> Phone
+                </label>
+            </div>
+
+            <div>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+                <button type="button" disabled>Disabled Button</button>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h2>Images</h2>
+        <p>Worth exactly 1,000 words, no more, no less.</p>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&h=500&fit=crop" alt="Sunrise over mountains">
+            <figcaption>A beautiful sunrise over mountains</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2>Horizontal Rule</h2>
+        <p>The HTML equivalent of "Meanwhile..."</p>
+
+        <p>Content before the horizontal rule.</p>
+        <hr>
+        <p>Content after the horizontal rule.</p>
+    </section>
+
+    <section>
+        <h2>Article Example</h2>
+        <p>Pretending this is real content since 2025.</p>
+
+        <article>
+            <h3>The Benefits of Classless CSS Frameworks</h3>
+            <p>Published on
+                <time datetime="2025-03-16">March 16, 2025</time>
+                by <u>Luke Heyburn</u></p>
+
+            <p>Classless CSS frameworks are like those friends who bring wine to your dinner party without being asked. They make everything better without requiring extra work.</p>
+
+            <p>They're perfect for:</p>
+            <ul>
+                <li>Quick prototypes</li>
+                <li>Content-focused websites</li>
+                <li>Blogs and documentation</li>
+                <li>Projects where you want to minimize CSS complexity</li>
+            </ul>
+
+            <p>By using semantic HTML and letting the framework handle the styling, you create more maintainable and accessible websites.</p>
+        </article>
+    </section>
+
+    <section>
+        <h2>Details & Summary</h2>
+        <p>The original "Read More" button.</p>
+
+        <details>
+            <summary>Click to expand this section</summary>
+            <p>Congratulations! You've discovered the hidden content.</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </details>
+    </section>
+
+    <p>There are also some commonly used helper classes which are demonstrated below</p>
+
+    <section>
+        <h2>Buttons</h2>
+        <p>Click me, I dare you.</p>
+        <button>No Class</button>
+        <button class="success">.success</button>
+        <button class="danger">.danger</button>
+        <button class="warning">.warning</button>
+        <button class="info">.info</button>
+        <button class="outline">.outline</button>
+    </section>
+
+    <section class="glass">
+        <h2>Glass Effect</h2>
+        <p>For that sleek, modern look without the fingerprints.</p>
+    </section>
+</main>
+
+<footer>
+    <small>Made with 💗 by
+        <a href="https://digitallytailored.com/" target="_blank" title="Digitally Tailored - Custom Web Solutions" aria-label="Made with love by Digitally Tailored, experts in custom website solutions and web design and development">Digitally Tailored</a></small>
+</footer>
