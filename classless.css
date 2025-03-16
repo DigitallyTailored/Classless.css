@@ -21,13 +21,14 @@
     --body-color: #334155;
     --heading-color: #1e293b;
     --link-color: #3b82f6;
-    --link-hover-color: #1d4ed8;
+    --link-hover-color: #0b65ff;
     --border-color: #e2e8f0;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --card-bg: #ffffff;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    --gradient-link: linear-gradient(135deg, var(--link-color) 0%, var(--link-hover-color) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
     --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-light) 100%);
     --gradient-danger: linear-gradient(135deg, var(--danger) 0%, var(--danger-light) 100%);
@@ -35,7 +36,7 @@
     --gradient-info: linear-gradient(135deg, var(--info) 0%, var(--info-light) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -200,7 +201,7 @@ a:not(nav a):before {
     height: 2px;
     bottom: -2px;
     left: 0;
-    background: var(--gradient-primary);
+    background: var(--gradient-link);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
 }
