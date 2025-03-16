@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classless CSS Framework Demo - No Class, All Style</title>
-    <link rel="stylesheet" href="classless.css">
 
     <!-- Add this line for the minified version -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/digitallytailored/classless@latest/classless.min.css">
@@ -58,11 +57,12 @@
 
 <script>
     const styleToggle = document.getElementById('styleToggle');
-    const stylesheet = document.querySelector('link[href="classless.css"]');
+    const stylesheet = document.querySelector('link[rel="stylesheet"]')
 
     styleToggle.addEventListener('change', function () {
         stylesheet.disabled = !this.checked;
     });
+
     function setColorScheme(scheme) {
         document.documentElement.setAttribute('color-scheme', scheme);
         localStorage.setItem('color-scheme', scheme);

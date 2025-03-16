@@ -24,6 +24,7 @@ This link always points to the latest version of the minified CSS.
 * Typography enhancements
 * Form styling
 * Table improvements
+* Light and dark themes
 
 ## Contributing
 
