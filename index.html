@@ -6,6 +6,8 @@
     <title>Classless CSS Framework Demo - No Class, All Style</title>
     <link rel="stylesheet" href="classless.css">
 
+    <!-- Add this line for the minified version -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/digitallytailored/classless@latest/classless.min.css">
 </head>
 <body>
 
@@ -55,16 +57,12 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const styleToggle = document.getElementById('styleToggle');
-        const stylesheet = document.querySelector('link[href="classless.css"]');
+    const styleToggle = document.getElementById('styleToggle');
+    const stylesheet = document.querySelector('link[href="classless.css"]');
 
-        styleToggle.addEventListener('change', function () {
-            stylesheet.disabled = !this.checked;
-        });
+    styleToggle.addEventListener('change', function () {
+        stylesheet.disabled = !this.checked;
     });
-</script>
-<script>
     function setColorScheme(scheme) {
         document.documentElement.setAttribute('color-scheme', scheme);
         localStorage.setItem('color-scheme', scheme);
@@ -80,13 +78,11 @@
 
     setColorScheme(getColorScheme());
 
-
     const darkModeToggle = document.getElementById('darkModeToggle');
     darkModeToggle.addEventListener('change', function () {
         setColorScheme(this.checked ? 'dark' : 'light');
     });
 
-    // Set initial state of the toggle
     darkModeToggle.checked = getColorScheme() === 'dark';
 </script>
 
@@ -96,6 +92,34 @@
 </header>
 
 <main>
+
+    <section>
+        <h2>Using the Minified CSS</h2>
+        <p>To use classless.css in your project, add the following line to your HTML:</p>
+        <pre><code id="cssLink">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/digitallytailored/classless@latest/classless.min.css"&gt;</code></pre>
+        <button onclick="copyToClipboard()" id="copyButton">Copy</button>
+        <p>This link always points to the latest version of the minified CSS.</p>
+    </section>
+
+    <script>
+        function copyToClipboard() {
+            const el = document.getElementById('cssLink');
+            const copyButton = document.getElementById('copyButton');
+            const textArea = document.createElement('textarea');
+            textArea.value = el.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            copyButton.textContent = 'Copied!';
+
+            setTimeout(() => {
+                copyButton.textContent = 'Copy';
+            }, 2000);
+        }
+    </script>
+
     <section>
         <h2>Typography</h2>
         <p>Words, but fancier.</p>

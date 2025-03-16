@@ -52,6 +52,7 @@
 
     /* Spacing */
     --spacing-base: 1rem;
+    --spacing-base-half: 0.5rem;
     --border-radius-sm: 0.25rem;
     --border-radius: 0.5rem;
     --border-radius-md: 0.75rem;
@@ -179,6 +180,7 @@ h6 {
 }
 
 p {
+    margin-top: var(--spacing-base-half);
     margin-bottom: var(--spacing-base);
 }
 
