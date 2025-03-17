@@ -1,4 +1,8 @@
-/* Modern Classless CSS Framework v2.0 */
+/* Modern Classless CSS Framework v1.0
+ * Created by Luke Heyburn
+ * Digitally Tailored (https://digitallytailored.com)
+ * MIT License
+ */
 
 :root {
     /* Modern Color Palette */
@@ -134,8 +138,6 @@ h1 {
     font-size: 2.75rem;
     margin-top: 2rem;
     background: var(--heading-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
 }
@@ -215,7 +217,7 @@ a:not(nav a):hover:before {
 
 /* New styles for external links */
 a[target="_blank"]:after {
-    content: "[+]"; /* Unicode character for north east arrow */
+    content: "[+]";
     display: inline-block;
     margin-left: 0.25em;
     font-size: 0.6em;
@@ -393,8 +395,6 @@ textarea:focus {
 
 select {
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     padding-right: 2.5rem;
     background-image: url("data:image/svg+xml;utf8,<svg fill='%23364153' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
@@ -593,32 +593,10 @@ article:hover, section:hover, aside:hover {
     outline-offset: 2px;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: var(--border-radius-full);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--gradient-secondary);
-    border-radius: var(--border-radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--gradient-primary);
-}
-
-/* Glass effect for special elements */
 /* Glass effect for special elements */
 .glass {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--body-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -701,7 +679,6 @@ article:hover, section:hover, aside:hover {
     /* Disable gradients and effects for print */
     h1, h2::after, button, input[type="button"], input[type="reset"], input[type="submit"] {
         background: none !important;
-        -webkit-text-fill-color: #000;
         text-fill-color: #000;
         box-shadow: none !important;
     }
