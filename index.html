@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classless CSS Framework Demo - No Class, All Style</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- Add this line for the minified version -->
     <link rel="stylesheet" href="classless.css">
+
 </head>
 <body>
 
@@ -58,9 +60,11 @@
 <script>
 
     //on/off toggle to disable stylesheet
-    const styleToggle = document.getElementById('styleToggle');
-    styleToggle.addEventListener('change', function () {
-        document.querySelector("link").disabled = !document.querySelector("link").disabled
+    document.getElementById('styleToggle').addEventListener('change', function () {
+        const stylesheet = document.querySelector("link[href*='classless'][href$='.css']");
+        if (stylesheet) {
+            stylesheet.disabled = !stylesheet.disabled;
+        }
     });
 
     //dark more toggle
