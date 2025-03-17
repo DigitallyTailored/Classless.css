@@ -6,7 +6,7 @@
     <title>Classless CSS Framework Demo - No Class, All Style</title>
 
     <!-- Add this line for the minified version -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/digitallytailored/classless@latest/classless.min.css">
+    <link rel="stylesheet" href="/classless.css">
 </head>
 <body>
 
@@ -56,12 +56,6 @@
 </div>
 
 <script>
-    const styleToggle = document.getElementById('styleToggle');
-    const stylesheet = document.querySelector('link[rel="stylesheet"]')
-
-    styleToggle.addEventListener('change', function () {
-        stylesheet.disabled = !this.checked;
-    });
 
     function setColorScheme(scheme) {
         document.documentElement.setAttribute('color-scheme', scheme);
@@ -97,28 +91,9 @@
         <h2>Using the Minified CSS</h2>
         <p>To use classless.css in your project, add the following line to your HTML:</p>
         <pre><code id="cssLink">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/digitallytailored/classless@latest/classless.min.css"&gt;</code></pre>
-        <button onclick="copyToClipboard()" id="copyButton">Copy</button>
+        <script src="/copy-button.js"></script>
         <p>This link always points to the latest version of the minified CSS.</p>
     </section>
-
-    <script>
-        function copyToClipboard() {
-            const el = document.getElementById('cssLink');
-            const copyButton = document.getElementById('copyButton');
-            const textArea = document.createElement('textarea');
-            textArea.value = el.textContent;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-
-            copyButton.textContent = 'Copied!';
-
-            setTimeout(() => {
-                copyButton.textContent = 'Copy';
-            }, 2000);
-        }
-    </script>
 
     <section>
         <h2>Typography</h2>
@@ -359,6 +334,7 @@ console.log(greet('World'));</code></pre>
         </details>
     </section>
 
+    <hr>
     <p>There are also some commonly used helper classes which are demonstrated below</p>
     <p><small>I guess we did have a bit of class all along!</small></p>
 

@@ -337,6 +337,20 @@ tr:hover td {
 }
 
 /* Forms */
+form {
+    background-color: var(--card-bg);
+    padding: var(--spacing-base);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-base);
+    border: 1px solid var(--border-color);
+}
+
+form > div {
+    margin-bottom: var(--spacing-base);
+}
+
+
 input, select, textarea, button {
     font-family: inherit;
     font-size: inherit;
@@ -374,7 +388,7 @@ select:focus,
 textarea:focus {
     outline: none;
     border-color: var(--border-color);
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+    box-shadow: 0 0 0px 3px rgba(102, 118, 201, 0.54);
 }
 
 select {
@@ -410,6 +424,7 @@ input[type="submit"] {
     min-width: 100px;
     display: inline-block;
     padding: calc(var(--spacing-base) * 0.75) var(--spacing-base);
+    margin: 0.125rem 0.125rem 0.125rem 0;
     background: var(--gradient-primary);
     color: white;
     border: none;
@@ -456,6 +471,7 @@ input[type="reset"]:active,
 input[type="submit"]:active {
     transform: translateY(2px);
     box-shadow: var(--shadow-sm);
+    filter: saturate(0.9) brightness(1.1);
 }
 
 button:disabled,
