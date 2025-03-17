@@ -57,6 +57,14 @@
 
 <script>
 
+    //on/off toggle to disable stylesheet
+    const styleToggle = document.getElementById('styleToggle');
+    styleToggle.addEventListener('change', function () {
+        document.querySelector("link").disabled = !document.querySelector("link").disabled
+    });
+
+    //dark more toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
     function setColorScheme(scheme) {
         document.documentElement.setAttribute('color-scheme', scheme);
         localStorage.setItem('color-scheme', scheme);
@@ -72,7 +80,6 @@
 
     setColorScheme(getColorScheme());
 
-    const darkModeToggle = document.getElementById('darkModeToggle');
     darkModeToggle.addEventListener('change', function () {
         setColorScheme(this.checked ? 'dark' : 'light');
     });
