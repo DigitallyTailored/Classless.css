@@ -7,7 +7,6 @@ function createCopyButton() {
 
     const copyButton = document.createElement('button');
     copyButton.textContent = 'Copy';
-    copyButton.style.marginTop = '10px';
 
     copyButton.addEventListener('click', function() {
         const textToCopy = previousSibling.innerText;
