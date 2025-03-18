@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "minify": "node minify.js"
+    "build": "node minify.js"
   },
   "private": true
 }
