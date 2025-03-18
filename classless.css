@@ -485,41 +485,41 @@ input[type="submit"]:disabled {
 }
 
 /* Button Variants */
-button.success,
-input[type="button"].success,
-input[type="submit"].success {
+button[data-variant="success"],
+input[type="button"][data-variant="success"],
+input[type="submit"][data-variant="success"] {
     background: var(--gradient-success);
 }
 
-button.danger,
-input[type="button"].danger,
-input[type="submit"].danger {
+button[data-variant="danger"],
+input[type="button"][data-variant="danger"],
+input[type="submit"][data-variant="danger"] {
     background: var(--gradient-danger);
 }
 
-button.warning,
-input[type="button"].warning,
-input[type="submit"].warning {
+button[data-variant="warning"],
+input[type="button"][data-variant="warning"],
+input[type="submit"][data-variant="warning"] {
     background: var(--gradient-warning);
 }
 
-button.info,
-input[type="button"].info,
-input[type="submit"].info {
+button[data-variant="info"],
+input[type="button"][data-variant="info"],
+input[type="submit"][data-variant="info"] {
     background: var(--gradient-info);
 }
 
-button.outline,
-input[type="button"].outline,
-input[type="submit"].outline {
+button[data-variant="outline"],
+input[type="button"][data-variant="outline"],
+input[type="submit"][data-variant="outline"] {
     background: transparent;
     border: 1px solid var(--primary-dark);
     color: var(--primary-dark);
 }
 
-button.outline:hover,
-input[type="button"].outline:hover,
-input[type="submit"].outline:hover {
+button[data-variant="outline"]:hover,
+input[type="button"][data-variant="outline"]:hover,
+input[type="submit"][data-variant="outline"]:hover {
     background-color: var(--primary);
     color: white;
 }
@@ -594,7 +594,7 @@ article:hover, section:hover, aside:hover {
 }
 
 /* Glass effect for special elements */
-.glass {
+[data-variant="glass"] {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -602,13 +602,13 @@ article:hover, section:hover, aside:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-:root[color-scheme="dark"] .glass {
+:root[color-scheme="dark"] [data-variant="glass"] {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Add a specific text shadow for better readability in light mode */
-:root:not([color-scheme="dark"]) .glass {
+:root:not([color-scheme="dark"]) [data-variant="glass"] {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
