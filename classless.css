@@ -94,6 +94,8 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     --card-bg: #1e293b;
 
+    --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark) 100%);
+
     /* Dark mode shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -266,7 +268,7 @@ pre code {
 }
 
 blockquote {
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--primary-light);
     padding: var(--spacing-base);
     margin-bottom: var(--spacing-base);
     font-style: italic;
@@ -277,6 +279,7 @@ blockquote {
 
 :root[color-scheme="dark"] blockquote {
     background-color: rgba(255, 255, 255, 0.03);
+    border-color: var(--primary-dark);
 }
 
 hr {
