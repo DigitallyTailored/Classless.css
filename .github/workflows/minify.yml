@@ -20,12 +20,8 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install dependencies
-        run: npm install clean-css-cli -g
-
       - name: Minify CSS
-        run: |
-          cleancss -o classless.min.css classless.css
+        run: node minify.js
 
       - name: Commit minified file
         run: |
