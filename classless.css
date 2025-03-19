@@ -7,8 +7,8 @@
 :root {
     /* Modern Color Palette */
     --primary: #364153;
-    --primary-light: #202732;
-    --primary-dark: #364153;
+    --primary-contrast: #202732;
+    --primary-invert: #364153;
     --secondary: #64748b;
     --secondary-light: #94a3b8;
     --success: #10b981;
@@ -31,7 +31,7 @@
     --card-bg: #ffffff;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-contrast) 100%);
     --gradient-link: linear-gradient(135deg, var(--link-color) 0%, var(--link-hover-color) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
     --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-light) 100%);
@@ -84,8 +84,8 @@
 
 :root[color-scheme="dark"] {
     --primary: #13181f;
-    --primary-light: #13181f;
-    --primary-dark: #cbe0ff;
+    --primary-contrast: #13181f;
+    --primary-invert: #cbe0ff;
 
     --body-bg: #0f172a;
     --body-color: #e2e8f0;
@@ -261,8 +261,9 @@ pre {
 }
 
 pre code {
-    display: block;
+    display: inline-block;
     background-color: transparent;
+    min-width: 100%;
 }
 
 blockquote {
@@ -513,8 +514,8 @@ button.outline,
 input[type="button"].outline,
 input[type="submit"].outline {
     background: transparent;
-    border: 1px solid var(--primary-dark);
-    color: var(--primary-dark);
+    border: 1px solid var(--primary-invert);
+    color: var(--primary-invert);
 }
 
 button.outline:hover,
