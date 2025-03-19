@@ -194,7 +194,6 @@ console.log(greet('World'));</code></pre>
     <section>
         <h2>Tables</h2>
         <p>Excel's distant HTML cousin.</p>
-
         <table>
             <thead>
             <tr>
@@ -206,31 +205,31 @@ console.log(greet('World'));</code></pre>
             </thead>
             <tbody>
             <tr>
-                <td>John Doe</td>
-                <td>john@example.com</td>
-                <td>Developer</td>
+                <td>Marty McFly</td>
+                <td>marty@hillvalley.edu</td>
+                <td>Time Traveler</td>
                 <td>Active</td>
             </tr>
             <tr>
-                <td>Jane Smith</td>
-                <td>jane@example.com</td>
-                <td>Designer</td>
+                <td>Doc Brown</td>
+                <td>doc@brownenterprises.com</td>
+                <td>Scientist</td>
                 <td>Active</td>
             </tr>
             <tr>
-                <td>Robert Johnson</td>
-                <td>robert@example.com</td>
-                <td>Manager</td>
+                <td>Biff Tannen</td>
+                <td>biff@tannenauto.com</td>
+                <td>Car Washer</td>
                 <td>Inactive</td>
             </tr>
             <tr>
-                <td>Emily Davis</td>
-                <td>emily@example.com</td>
-                <td>Developer</td>
+                <td>Lorraine Baines</td>
+                <td>lorraine@hillvalley.edu</td>
+                <td>Student</td>
                 <td>Active</td>
             </tr>
             </tbody>
-        </table>
+        </table>        
     </section>
 
     <section>
@@ -297,8 +296,8 @@ console.log(greet('World'));</code></pre>
         <p>Worth exactly 1,000 words, no more, no less.</p>
 
         <figure>
-            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&h=500&fit=crop" alt="Sunrise over mountains">
-            <figcaption>A beautiful sunrise over mountains</figcaption>
+            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&h=500&fit=crop" alt="Sunrise over invisible mountains">
+            <figcaption>A beautiful sunrise over invisible mountains</figcaption>
         </figure>
     </section>
 
@@ -342,7 +341,7 @@ console.log(greet('World'));</code></pre>
 
         <details>
             <summary>Click to expand this section</summary>
-            <p>Congratulations! You've discovered the hidden content.</p>
+            <p>Congratulations! You've discovered the hidden content we pointed out.</p>
             <ul>
                 <li>Item 1</li>
                 <li>Item 2</li>
@@ -364,7 +363,17 @@ console.log(greet('World'));</code></pre>
         <button class="warning">.warning</button>
         <button class="info">.info</button>
         <button class="outline">.outline</button>
+        <script>
+            const buttons = this.parentElement.getElementsByTagName('button');
+            for (let btn of buttons) {
+                btn.addEventListener('click', function() {
+                    const className = this.className || 'plain';
+                    alert(`Mr. ${className} says: Ahh! How could you?!`);
+                });
+            }
+        </script>
     </section>
+
     <div class="glass-demo">
         <section class="glass">
             <h2>Glass Effect</h2>
