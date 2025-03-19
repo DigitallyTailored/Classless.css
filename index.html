@@ -364,7 +364,7 @@ console.log(greet('World'));</code></pre>
         <button class="info">.info</button>
         <button class="outline">.outline</button>
         <script>
-            const buttons = this.parentElement.getElementsByTagName('button');
+            const buttons = document.currentScript.parentElement.getElementsByTagName('button');
             for (let btn of buttons) {
                 btn.addEventListener('click', function() {
                     const className = this.className || 'plain';
