@@ -7,8 +7,8 @@
 :root {
     /* Modern Color Palette */
     --primary: #364153;
-    --primary-light: #202732;
-    --primary-dark: #364153;
+    --primary-highlight: #202732;
+    --primary-invert: #364153;
     --secondary: #64748b;
     --secondary-light: #94a3b8;
     --success: #10b981;
@@ -31,7 +31,7 @@
     --card-bg: #ffffff;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-highlight) 100%);
     --gradient-link: linear-gradient(135deg, var(--link-color) 0%, var(--link-hover-color) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
     --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-light) 100%);
@@ -84,8 +84,8 @@
 
 :root[color-scheme="dark"] {
     --primary: #13181f;
-    --primary-light: #13181f;
-    --primary-dark: #cbe0ff;
+    --primary-highlight: #13181f;
+    --primary-invert: #cbe0ff;
 
     --body-bg: #0f172a;
     --body-color: #e2e8f0;
@@ -94,7 +94,7 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     --card-bg: #1e293b;
 
-    --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--primary-invert) 0%, var(--primary-invert) 100%);
 
     /* Dark mode shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -268,7 +268,7 @@ pre code {
 }
 
 blockquote {
-    border-left: 4px solid var(--primary-light);
+    border-left: 4px solid var(--primary-highlight);
     padding: var(--spacing-base);
     margin-bottom: var(--spacing-base);
     font-style: italic;
@@ -279,7 +279,7 @@ blockquote {
 
 :root[color-scheme="dark"] blockquote {
     background-color: rgba(255, 255, 255, 0.03);
-    border-color: var(--primary-dark);
+    border-color: var(--primary-invert);
 }
 
 hr {
@@ -440,6 +440,10 @@ input[type="submit"] {
     overflow: hidden;
 }
 
+:root[color-scheme="dark"] button {
+    background: var(--primary);
+}
+
 button::after,
 input[type="button"]::after,
 input[type="reset"]::after,
@@ -489,38 +493,44 @@ input[type="submit"]:disabled {
 
 /* Button Variants */
 button.success,
+:root[color-scheme="dark"] button.success,
 input[type="button"].success,
 input[type="submit"].success {
     background: var(--gradient-success);
 }
 
 button.danger,
+:root[color-scheme="dark"] button.danger,
 input[type="button"].danger,
 input[type="submit"].danger {
     background: var(--gradient-danger);
 }
 
 button.warning,
+:root[color-scheme="dark"] button.warning,
 input[type="button"].warning,
 input[type="submit"].warning {
     background: var(--gradient-warning);
 }
 
 button.info,
+:root[color-scheme="dark"] button.info,
 input[type="button"].info,
 input[type="submit"].info {
     background: var(--gradient-info);
 }
 
 button.outline,
+:root[color-scheme="dark"] button.outline,
 input[type="button"].outline,
 input[type="submit"].outline {
     background: transparent;
-    border: 1px solid var(--primary-dark);
-    color: var(--primary-dark);
+    border: 1px solid var(--primary-invert);
+    color: var(--primary-invert);
 }
 
 button.outline:hover,
+:root[color-scheme="dark"] button.outline:hover,
 input[type="button"].outline:hover,
 input[type="submit"].outline:hover {
     background-color: var(--primary);
