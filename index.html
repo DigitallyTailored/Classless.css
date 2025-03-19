@@ -367,7 +367,7 @@ console.log(greet('World'));</code></pre>
             const buttons = document.currentScript.parentElement.getElementsByTagName('button');
             for (let btn of buttons) {
                 btn.addEventListener('click', function() {
-                    const className = this.className || 'plain';
+                    const className = this.className || 'Absolutely No Class';
                     alert(`Mr. ${className} says: Ahh! How could you?!`);
                 });
             }
