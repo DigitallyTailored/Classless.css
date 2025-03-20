@@ -68,14 +68,13 @@
     /* Animation */
     --transition-base: all 0.2s ease-in-out;
     --transition-slow: all 0.3s ease-in-out;
-}
 
-/* Dark mode */
-:root {
+    /* Color scheme */
     color-scheme: light;
     --color-mode: 'light';
 }
 
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --color-mode: 'dark';
@@ -86,15 +85,12 @@
     --primary: #13181f;
     --primary-light: #13181f;
     --primary-dark: #cbe0ff;
-
     --body-bg: #0f172a;
     --body-color: #e2e8f0;
     --heading-color: #f8fafc;
     --border-color: #334155;
     --shadow-color: rgba(0, 0, 0, 0.3);
     --card-bg: #1e293b;
-
-    /* Dark mode shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
@@ -123,6 +119,7 @@ body {
     max-width: var(--container-max-width);
     margin: 0 auto;
     transition: var(--transition-slow);
+    animation: colorSchemeTransition 0.5s ease-out;
 }
 
 /* Typography */
@@ -215,7 +212,6 @@ a:not(nav a):hover:before {
     transform-origin: bottom left;
 }
 
-/* New styles for external links */
 a[target="_blank"]:after {
     content: "[+]";
     display: inline-block;
@@ -225,7 +221,6 @@ a[target="_blank"]:after {
     text-decoration: none;
     vertical-align: super;
 }
-
 
 small {
     font-size: 0.875rem;
@@ -296,8 +291,6 @@ li {
     margin-bottom: calc(var(--spacing-base) * 0.5);
 }
 
-
-
 /* Tables */
 table {
     width: 100%;
@@ -318,6 +311,7 @@ th, td {
 thead {
     background: var(--gradient-secondary);
 }
+
 th {
     font-weight: var(--font-weight-bold);
     color: white;
@@ -351,7 +345,6 @@ form {
 form > div {
     margin-bottom: var(--spacing-base);
 }
-
 
 input, select, textarea, button {
     font-family: inherit;
@@ -607,7 +600,6 @@ article:hover, section:hover, aside:hover {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Add a specific text shadow for better readability in light mode */
 :root:not([color-scheme="dark"]) [data-variant="glass"] {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -659,7 +651,6 @@ article:hover, section:hover, aside:hover {
     }
 
     thead {
-        background: var(--gradient-secondary);
         display: table-header-group;
     }
 
@@ -688,21 +679,8 @@ article:hover, section:hover, aside:hover {
     }
 }
 
-/* Add transitions for color scheme changes */
-body,
-a,
-button,
-input,
-select,
-textarea,
-th,
-td,
-code,
-pre,
-blockquote,
-article,
-section,
-aside {
+/* Transitions */
+body, a, button, input, select, textarea, th, td, code, pre, blockquote, article, section, aside {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -710,8 +688,4 @@ aside {
 @keyframes colorSchemeTransition {
     0% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-body {
-    animation: colorSchemeTransition 0.5s ease-out;
 }
