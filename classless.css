@@ -501,7 +501,9 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    min-width: 100px;
+    vertical-align: middle;
+    min-height: 3.1rem;
+    min-width: 6.5rem;
     display: inline-block;
     padding: calc(var(--spacing-base) * 0.75) var(--spacing-base);
     margin: 0.125rem 0.125rem 0.125rem 0;
@@ -515,6 +517,27 @@ input[type="submit"] {
     transition: var(--transition-base);
     position: relative;
     overflow: hidden;
+}
+
+/* Create the loading spinner using ::after pseudo-element */
+button:empty::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 12px);
+    left: calc(50% - 12px);
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgb(255, 255, 255);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 button:after,
@@ -563,6 +586,7 @@ input[type="submit"]:disabled {
     opacity: 0.7;
     transform: none;
 }
+
 
 /* Button Variants */
 button.success,
