@@ -13,7 +13,6 @@
 <body>
 
 <style>
-
     .glass-demo {
         background-image: url('https://plus.unsplash.com/premium_photo-1675802756329-145bac875bf7?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
         background-size: cover;
@@ -43,7 +42,6 @@
         padding: 0.5rem 1rem;
         z-index: 1;
     }
-
 </style>
 
 <div class="toggle-container">
@@ -58,7 +56,6 @@
 </div>
 
 <script>
-
     //on/off toggle to disable stylesheet
     document.getElementById('styleToggle').addEventListener('change', function () {
         const stylesheet = document.querySelector("link[href*='classless'][href$='.css']");
@@ -97,7 +94,6 @@
 </header>
 
 <main>
-
     <section>
         <h2>Using the Minified CSS</h2>
         <p>To use classless.css in your project, add the following line to your HTML:</p>
@@ -110,6 +106,31 @@
             <a href="https://digitallytailored.com/" target="_blank">Work with Digitally Tailored</a> ·
             <a href="https://bsky.app/profile/devanew.com" target="_blank">Follow me on BlueSky</a>
         </p>
+    </section>
+
+    <section>
+        <h2>Article Example</h2>
+        <p>Pretending this is real content since 2025.</p>
+
+        <article>
+            <h3>The Benefits of Classless CSS Frameworks</h3>
+            <p>Published on
+                <time datetime="2025-03-16">March 16, 2025</time>
+                by <a href="https://digitallytailored.com/" target="_blank" title="Digitally Tailored - Custom Web Solutions">Luke Heyburn</a></p>
+
+            <p>Classless CSS frameworks are like those friends who bring wine to your dinner party without being asked. They make everything better
+                without requiring extra work.</p>
+
+            <p>They're perfect for:</p>
+            <ul>
+                <li>Quick prototypes</li>
+                <li>Content-focused websites</li>
+                <li>Blogs and documentation</li>
+                <li>Projects where you want to minimize CSS complexity</li>
+            </ul>
+
+            <p>By using semantic HTML and letting the framework handle the styling, you create more maintainable and accessible websites.</p>
+        </article>
     </section>
 
     <section>
@@ -192,6 +213,21 @@ console.log(greet('World'));</code></pre>
     </section>
 
     <section>
+        <h2>Details & Summary</h2>
+        <p>The original "Read More" button.</p>
+
+        <details>
+            <summary>Click to expand this section</summary>
+            <p>Congratulations! You've discovered the hidden content we pointed out.</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </details>
+    </section>
+
+    <section>
         <h2>Tables</h2>
         <p>Excel's distant HTML cousin.</p>
         <table>
@@ -229,14 +265,13 @@ console.log(greet('World'));</code></pre>
                 <td>Active</td>
             </tr>
             </tbody>
-        </table>        
+        </table>
     </section>
 
     <section>
         <h2>Forms</h2>
         <p>Where user data goes to live a fulfilling life.</p>
         <form>
-
             <label for="search-input">Search</label>
             <input type="search" id="search-input" placeholder="Search...">
 
@@ -290,14 +325,22 @@ console.log(greet('World'));</code></pre>
 
             <button type="submit">Submit</button>
             <button type="reset">Reset</button>
-
         </form>
 
-
         <p>Empty buttons are shown as loading</p>
-
         <button></button>
         <button disabled></button>
+    </section>
+
+    <section>
+        <h2>Progress</h2>
+        <p>Loading... Just like your patience.</p>
+
+        <p>70%</p>
+        <progress value="70" max="100"></progress>
+
+        <p>No value</p>
+        <progress></progress>
     </section>
 
     <section>
@@ -311,63 +354,12 @@ console.log(greet('World'));</code></pre>
     </section>
 
     <section>
-        <h2>Progress</h2>
-        <p>Loading... just like your patience.</p>
-
-        <p>70%</p>
-        <progress value="70" max="100"></progress>
-
-        <p>No value</p>
-        <progress></progress>
-    </section>
-
-    <section>
         <h2>Horizontal Rule</h2>
         <p>The HTML equivalent of "Meanwhile..."</p>
 
         <p>Content before the horizontal rule.</p>
         <hr>
         <p>Content after the horizontal rule.</p>
-    </section>
-
-    <section>
-        <h2>Article Example</h2>
-        <p>Pretending this is real content since 2025.</p>
-
-        <article>
-            <h3>The Benefits of Classless CSS Frameworks</h3>
-            <p>Published on
-                <time datetime="2025-03-16">March 16, 2025</time>
-                by <a href="https://digitallytailored.com/" target="_blank" title="Digitally Tailored - Custom Web Solutions">Luke Heyburn</a></p>
-
-            <p>Classless CSS frameworks are like those friends who bring wine to your dinner party without being asked. They make everything better
-                without requiring extra work.</p>
-
-            <p>They're perfect for:</p>
-            <ul>
-                <li>Quick prototypes</li>
-                <li>Content-focused websites</li>
-                <li>Blogs and documentation</li>
-                <li>Projects where you want to minimize CSS complexity</li>
-            </ul>
-
-            <p>By using semantic HTML and letting the framework handle the styling, you create more maintainable and accessible websites.</p>
-        </article>
-    </section>
-
-    <section>
-        <h2>Details & Summary</h2>
-        <p>The original "Read More" button.</p>
-
-        <details>
-            <summary>Click to expand this section</summary>
-            <p>Congratulations! You've discovered the hidden content we pointed out.</p>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </details>
     </section>
 
     <hr>
@@ -408,3 +400,6 @@ console.log(greet('World'));</code></pre>
            aria-label="Made with love by Digitally Tailored, experts in custom website solutions and web design and development">Digitally
             Tailored</a></small>
 </footer>
+
+</body>
+</html>
