@@ -194,7 +194,6 @@ console.log(greet('World'));</code></pre>
     <section>
         <h2>Tables</h2>
         <p>Excel's distant HTML cousin.</p>
-
         <table>
             <thead>
             <tr>
@@ -206,89 +205,91 @@ console.log(greet('World'));</code></pre>
             </thead>
             <tbody>
             <tr>
-                <td>John Doe</td>
-                <td>john@example.com</td>
-                <td>Developer</td>
+                <td>Marty McFly</td>
+                <td>marty@hillvalley.edu</td>
+                <td>Time Traveler</td>
                 <td>Active</td>
             </tr>
             <tr>
-                <td>Jane Smith</td>
-                <td>jane@example.com</td>
-                <td>Designer</td>
+                <td>Doc Brown</td>
+                <td>doc@brownenterprises.com</td>
+                <td>Scientist</td>
                 <td>Active</td>
             </tr>
             <tr>
-                <td>Robert Johnson</td>
-                <td>robert@example.com</td>
-                <td>Manager</td>
+                <td>Biff Tannen</td>
+                <td>biff@tannenauto.com</td>
+                <td>Car Washer</td>
                 <td>Inactive</td>
             </tr>
             <tr>
-                <td>Emily Davis</td>
-                <td>emily@example.com</td>
-                <td>Developer</td>
+                <td>Lorraine Baines</td>
+                <td>lorraine@hillvalley.edu</td>
+                <td>Student</td>
                 <td>Active</td>
             </tr>
             </tbody>
-        </table>
+        </table>        
     </section>
 
     <section>
         <h2>Forms</h2>
         <p>Where user data goes to live a fulfilling life.</p>
-
         <form>
-            <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your name">
-            </div>
 
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="your.email@example.com">
-            </div>
+            <label for="search-input">Search</label>
+            <input type="search" id="search-input" placeholder="Search...">
 
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Make it stronger than your coffee">
-            </div>
+            <label for="text-input">Text</label>
+            <input type="text" id="text-input" placeholder="Enter text">
 
-            <div>
-                <label for="role">Role</label>
-                <select id="role">
-                    <option value="">Select a role</option>
-                    <option value="developer">Developer</option>
-                    <option value="designer">Designer</option>
-                    <option value="manager">Manager</option>
-                </select>
-            </div>
+            <label for="email-input">Email</label>
+            <input type="email" id="email-input" placeholder="Enter email">
 
-            <div>
-                <label for="message">Message</label>
-                <textarea id="message" placeholder="Your message here"></textarea>
-            </div>
+            <label for="password-input">Password</label>
+            <input type="password" id="password-input" placeholder="Enter password">
 
-            <div>
-                <label>
-                    <input type="checkbox"> I agree to the terms and conditions
-                </label>
-            </div>
+            <label for="tel-input">Telephone</label>
+            <input type="tel" id="tel-input" placeholder="Enter phone number">
 
-            <div>
-                <p>Preferred contact method:</p>
-                <label>
-                    <input type="radio" name="contact" value="email"> Email
-                </label>
-                <label>
-                    <input type="radio" name="contact" value="phone"> Phone
-                </label>
-            </div>
+            <label for="url-input">URL</label>
+            <input type="url" id="url-input" placeholder="Enter URL">
 
-            <div>
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-                <button type="button" disabled>Disabled Button</button>
-            </div>
+            <label for="date-input">Date</label>
+            <input type="date" id="date-input">
+
+            <label for="time-input">Time</label>
+            <input type="time" id="time-input">
+
+            <label for="color-input">Color</label>
+            <input type="color" id="color-input">
+
+            <label for="file-input">File</label>
+            <input type="file" id="file-input">
+
+            <label for="range-input">Range</label>
+            <input type="range" id="range-input" min="0" max="100">
+
+            <label for="select">Select</label>
+            <select id="select">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+            </select>
+
+            <label for="textarea">Textarea</label>
+            <textarea id="textarea" placeholder="Enter long form text"></textarea>
+
+            <label>Checkbox</label>
+            <label for="checkbox-input-1"><input type="checkbox" id="checkbox-input-1"> Option 1</label>
+            <label for="checkbox-input-2"><input type="checkbox" id="checkbox-input-2"> Option 2</label>
+
+            <label>Radio</label>
+            <label for="radio-input-1"><input type="radio" name="radio-group" id="radio-input-1"> Option 1</label>
+            <label for="radio-input-2"><input type="radio" name="radio-group" id="radio-input-2"> Option 2</label>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
         </form>
     </section>
 
@@ -297,9 +298,20 @@ console.log(greet('World'));</code></pre>
         <p>Worth exactly 1,000 words, no more, no less.</p>
 
         <figure>
-            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&h=500&fit=crop" alt="Sunrise over mountains">
-            <figcaption>A beautiful sunrise over mountains</figcaption>
+            <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=800&h=500&fit=crop" alt="Sunrise over invisible mountains">
+            <figcaption>A beautiful sunrise over invisible mountains</figcaption>
         </figure>
+    </section>
+
+    <section>
+        <h2>Progress</h2>
+        <p>Loading... just like your patience.</p>
+
+        <p>70%</p>
+        <progress value="70" max="100"></progress>
+
+        <p>No value</p>
+        <progress></progress>
     </section>
 
     <section>
@@ -342,7 +354,7 @@ console.log(greet('World'));</code></pre>
 
         <details>
             <summary>Click to expand this section</summary>
-            <p>Congratulations! You've discovered the hidden content.</p>
+            <p>Congratulations! You've discovered the hidden content we pointed out.</p>
             <ul>
                 <li>Item 1</li>
                 <li>Item 2</li>
@@ -352,23 +364,33 @@ console.log(greet('World'));</code></pre>
     </section>
 
     <hr>
-    <p>There are also some commonly used helper attributes which are demonstrated below</p>
+    <p>There are also some commonly used helper classes which are demonstrated below</p>
+    <p><small>I guess we did have a bit of class all along!</small></p>
 
     <section>
         <h2>Buttons</h2>
-        <p>You can use the <code>data-variant</code> attribute to change the style of the button.</p>
+        <p>Click me, I dare you.</p>
         <button>No Class</button>
-        <button data-variant="success">success</button>
-        <button data-variant="danger">danger</button>
-        <button data-variant="warning">warning</button>
-        <button data-variant="info">info</button>
-        <button data-variant="outline">outline</button>
+        <button class="success">.success</button>
+        <button class="danger">.danger</button>
+        <button class="warning">.warning</button>
+        <button class="info">.info</button>
+        <button class="outline">.outline</button>
+        <script>
+            const buttons = document.currentScript.parentElement.getElementsByTagName('button');
+            for (let btn of buttons) {
+                btn.addEventListener('click', function() {
+                    const className = this.className || 'Absolutely No Class';
+                    alert(`Mr. ${className} says: "Ahh! How could you?!"`);
+                });
+            }
+        </script>
     </section>
+
     <div class="glass-demo">
-        <section data-variant="glass">
+        <section class="glass">
             <h2>Glass Effect</h2>
             <p>For that sleek, modern look without the fingerprints.</p>
-            <p>Use with <code>data-variant="glass"</code> on an element.</p>
         </section>
     </div>
 </main>

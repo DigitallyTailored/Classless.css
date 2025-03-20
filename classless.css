@@ -7,8 +7,8 @@
 :root {
     /* Modern Color Palette */
     --primary: #364153;
-    --primary-light: #202732;
-    --primary-dark: #364153;
+    --primary-contrast: #202732;
+    --primary-invert: #364153;
     --secondary: #64748b;
     --secondary-light: #94a3b8;
     --success: #10b981;
@@ -24,14 +24,16 @@
     --body-bg: #ffffff;
     --body-color: #334155;
     --heading-color: #1e293b;
-    --link-color: #3b82f6;
+    --link-color: #1d72fc;
     --link-hover-color: #0b65ff;
     --border-color: #e2e8f0;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --card-bg: #ffffff;
+    --progress-color: #60ed7c;
+    --input-icon-color: #64748b;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-contrast) 100%);
     --gradient-link: linear-gradient(135deg, var(--link-color) 0%, var(--link-hover-color) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
     --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-light) 100%);
@@ -72,6 +74,7 @@
     /* Color scheme */
     color-scheme: light;
     --color-mode: 'light';
+
 }
 
 /* Dark mode */
@@ -83,14 +86,17 @@
 
 :root[color-scheme="dark"] {
     --primary: #13181f;
-    --primary-light: #13181f;
-    --primary-dark: #cbe0ff;
+    --primary-contrast: #13181f;
+    --primary-invert: #cbe0ff;
     --body-bg: #0f172a;
     --body-color: #e2e8f0;
     --heading-color: #f8fafc;
     --border-color: #334155;
     --shadow-color: rgba(0, 0, 0, 0.3);
     --card-bg: #1e293b;
+    --link-color: #61aeff;
+    --progress-color: #2f9e45;
+    --input-icon-color: #e2e8f0;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
@@ -129,14 +135,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
     letter-spacing: -0.025em;
+    text-wrap: balance;
 }
 
 h1 {
     font-size: 2.75rem;
-    margin-top: 2rem;
-    background: var(--heading-color);
-    background-clip: text;
-    text-fill-color: transparent;
+    margin-top: 2rem;;
 }
 
 h2 {
@@ -145,14 +149,14 @@ h2 {
     position: relative;
 }
 
-h2::after {
+h2:after {
     content: "";
     position: absolute;
     bottom: -0.5rem;
     left: 0;
     width: 3rem;
     height: 0.15rem;
-    background: var(--gradient-primary);
+    background: var(--primary-contrast);
     border-radius: var(--border-radius-full);
 }
 
@@ -256,8 +260,9 @@ pre {
 }
 
 pre code {
-    display: block;
+    display: inline-block;
     background-color: transparent;
+    min-width: 100%;
 }
 
 blockquote {
@@ -364,28 +369,106 @@ input[type="datetime-local"],
 input[type="month"],
 input[type="week"],
 input[type="time"],
+input[type="color"],
+input[type="file"],
+input[type="range"],
+input[type="checkbox"],
+input[type="radio"],
 select,
 textarea {
     display: block;
     width: 100%;
+    margin-bottom: var(--spacing-base);
     padding: calc(var(--spacing-base) * 0.75);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     background-color: var(--body-bg);
     color: var(--body-color);
-    margin-bottom: var(--spacing-base);
     transition: var(--transition-base);
     box-shadow: var(--shadow-sm);
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--border-color);
-    box-shadow: 0 0 0px 3px rgba(102, 118, 201, 0.54);
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    margin-bottom: 0;
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
+input[type="color"] {
+    padding: 0;
+    height: 40px;
+    border-radius: unset;
+}
+
+input[type="file"] {
+    padding: calc(var(--spacing-base) * 0.5);
+}
+
+input[type="range"] {
+    padding: 0;
+}
+
+/* Input styling with icons */
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="search"] {
+    padding-left: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: 0.75rem center;
+    background-size: 1rem;
+    position: relative;
+}
+
+input[type="url"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23989fab' viewBox='0 0 16 16'%3E%3Cpath d='M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z'/%3E%3Cpath d='M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z'/%3E%3C/svg%3E");
+}
+
+input[type="email"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23989fab' viewBox='0 0 16 16'%3E%3Cpath d='M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z'/%3E%3C/svg%3E");
+}
+
+input[type="password"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23989fab' viewBox='0 0 16 16'%3E%3Cpath d='M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z'/%3E%3C/svg%3E");
+}
+
+input[type="tel"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' stroke='%23989fab' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z'/%3E%3C/svg%3E");
+}
+
+input[type="search"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23989fab' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* Ensure text is visible */
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="search"] {
+    color: var(--body-color);
+}
+
+input[type="url"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="search"]::placeholder {
+    color: var(--body-color);
+    opacity: 0.7;
+}
+
+
+input[type="search"] {
+    border-radius: var(--border-radius-full);
+}
+
+
+
+/* Select styling with icon */
 select {
     appearance: none;
     padding-right: 2.5rem;
@@ -397,6 +480,14 @@ select {
 
 :root[color-scheme="dark"] select {
     background-image: url("data:image/svg+xml;utf8,<svg fill='%23e2e8f0' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--border-color);
+    box-shadow: 0 0 0px 3px rgba(102, 118, 201, 0.54);
 }
 
 textarea {
@@ -430,10 +521,10 @@ input[type="submit"] {
     overflow: hidden;
 }
 
-button::after,
-input[type="button"]::after,
-input[type="reset"]::after,
-input[type="submit"]::after {
+button:after,
+input[type="button"]:after,
+input[type="reset"]:after,
+input[type="submit"]:after {
     content: '';
     position: absolute;
     top: 0;
@@ -444,10 +535,10 @@ input[type="submit"]::after {
     transition: var(--transition-base);
 }
 
-button:hover::after,
-input[type="button"]:hover::after,
-input[type="reset"]:hover::after,
-input[type="submit"]:hover::after {
+button:hover:after,
+input[type="button"]:hover:after,
+input[type="reset"]:hover:after,
+input[type="submit"]:hover:after {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -478,41 +569,41 @@ input[type="submit"]:disabled {
 }
 
 /* Button Variants */
-button[data-variant="success"],
-input[type="button"][data-variant="success"],
-input[type="submit"][data-variant="success"] {
+button.success,
+input[type="button"].success,
+input[type="submit"].success {
     background: var(--gradient-success);
 }
 
-button[data-variant="danger"],
-input[type="button"][data-variant="danger"],
-input[type="submit"][data-variant="danger"] {
+button.danger,
+input[type="button"].danger,
+input[type="submit"].danger {
     background: var(--gradient-danger);
 }
 
-button[data-variant="warning"],
-input[type="button"][data-variant="warning"],
-input[type="submit"][data-variant="warning"] {
+button.warning,
+input[type="button"].warning,
+input[type="submit"].warning {
     background: var(--gradient-warning);
 }
 
-button[data-variant="info"],
-input[type="button"][data-variant="info"],
-input[type="submit"][data-variant="info"] {
+button.info,
+input[type="button"].info,
+input[type="submit"].info {
     background: var(--gradient-info);
 }
 
-button[data-variant="outline"],
-input[type="button"][data-variant="outline"],
-input[type="submit"][data-variant="outline"] {
+button.outline,
+input[type="button"].outline,
+input[type="submit"].outline {
     background: transparent;
-    border: 1px solid var(--primary-dark);
-    color: var(--primary-dark);
+    border: 1px solid var(--primary-invert);
+    color: var(--primary-invert);
 }
 
-button[data-variant="outline"]:hover,
-input[type="button"][data-variant="outline"]:hover,
-input[type="submit"][data-variant="outline"]:hover {
+button.outline:hover,
+input[type="button"].outline:hover,
+input[type="submit"].outline:hover {
     background-color: var(--primary);
     color: white;
 }
@@ -550,7 +641,7 @@ details summary {
     padding-bottom: calc(var(--spacing-base) * 0.5);
 }
 
-details summary::after {
+details summary:after {
     content: '';
     position: absolute;
     left: 0;
@@ -576,10 +667,11 @@ article, section, aside {
     border: 1px solid var(--border-color);
 }
 
+/*
 article:hover, section:hover, aside:hover {
     box-shadow: var(--shadow-md);
 }
-
+*/
 /* Utility for focus outline */
 :focus-visible {
     outline: 2px solid var(--primary);
@@ -587,7 +679,7 @@ article:hover, section:hover, aside:hover {
 }
 
 /* Glass effect for special elements */
-[data-variant="glass"] {
+.glass {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -595,12 +687,14 @@ article:hover, section:hover, aside:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-:root[color-scheme="dark"] [data-variant="glass"] {
+:root[color-scheme="dark"] .glass {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-:root:not([color-scheme="dark"]) [data-variant="glass"] {
+
+/* Add a specific text shadow for better readability in light mode */
+:root:not([color-scheme="dark"]) .glass {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -668,14 +762,14 @@ article:hover, section:hover, aside:hover {
     }
 
     /* Disable gradients and effects for print */
-    h1, h2::after, button, input[type="button"], input[type="reset"], input[type="submit"] {
-        background: none !important;
+    h1, h2:after, button, input[type="button"], input[type="reset"], input[type="submit"] {
+        background: none;
         text-fill-color: #000;
-        box-shadow: none !important;
+        box-shadow: none;
     }
 
     article, section, aside, img, pre, blockquote, table {
-        box-shadow: none !important;
+        box-shadow: none;
     }
 }
 
@@ -688,4 +782,77 @@ body, a, button, input, select, textarea, th, td, code, pre, blockquote, article
 @keyframes colorSchemeTransition {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+/* Progress Bar */
+progress {
+    appearance: none;
+    width: 100%;
+    height: 1rem;
+    border: none;
+    border-radius: var(--border-radius-full);
+    background-color: var(--border-color);
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--border-color);
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--progress-color);
+    transition: width 0.3s ease;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--progress-color);
+    transition: width 0.3s ease;
+}
+
+/* Loading Animation for Progress Bar */
+@keyframes moveStripe {
+    0% { background-position: 200% 0; }
+    100% { background-position: 0 0; }
+}
+
+progress:indeterminate {
+    background-image: linear-gradient(
+            to right,
+            var(--border-color) 0%,
+            var(--border-color) 25%,
+            var(--progress-color) 25%,
+            var(--progress-color) 75%,
+            var(--border-color) 75%,
+            var(--border-color) 100%
+    );
+    background-size: 200% 100%;
+    animation: moveStripe 2s linear infinite;
+}
+
+progress:indeterminate::-moz-progress-bar {
+    background-image: linear-gradient(
+            to right,
+            var(--border-color) 0%,
+            var(--border-color) 25%,
+            var(--progress-color) 25%,
+            var(--progress-color) 75%,
+            var(--border-color) 75%,
+            var(--border-color) 100%
+    );
+    background-size: 200% 100%;
+    animation: moveStripe 2s linear infinite;
+}
+
+/* Webkit specific styles for indeterminate progress */
+progress:indeterminate::-webkit-progress-bar {
+    background-image: linear-gradient(
+            to right,
+            var(--border-color) 0%,
+            var(--border-color) 25%,
+            var(--progress-color) 25%,
+            var(--progress-color) 75%,
+            var(--border-color) 75%,
+            var(--border-color) 100%
+    );
+    background-size: 200% 100%;
+    animation: moveStripe 2s linear infinite;
 }
