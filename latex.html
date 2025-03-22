@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Your Name">
+    <meta name="description" content="Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/digitallytailored/classless@latest/classless.min.css">
+    <title>Rendering LaTeX</title>
+
+    <!-- Add this line for the minified version -->
+    <link rel="stylesheet" href="classless.min.css">
+
+    <!-- START LaTeX rendering property -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/katex.min.css" integrity="sha384-mXD7x5S50Ko38scHSnD4egvoExgMPbrseZorkbE49evAfv9nNcbrXJ8LLNsDgh9d" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/katex.min.js" integrity="sha384-j/ZricySXBnNMJy9meJCtyXTKMhIJ42heyr7oAdxTDBy/CYA9hzpMo+YTNV5C+1X" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+            // customised options
+            // auto-render specific keys, e.g.:
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+            ],
+            // rendering keys, e.g.:
+            throwOnError : false
+            });
+        });
+    </script>
+    <!-- END LaTeX rendering property -->
+</head>
+<body>
+
+<style>
+    .glass-demo {
+        background-image: url('https://plus.unsplash.com/premium_photo-1675802756329-145bac875bf7?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .toggle-container label {
+        display: block;
+    }
+
+    .toggle-container .toggle-label {
+        margin-left: 0.25em;
+    }
+
+    .toggle-container {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        background-color: #000000;
+        border-radius: 0.375rem;
+        color: white;
+        padding: 0.5rem 1rem;
+        z-index: 1;
+    }
+</style>
+
+<div class="toggle-container">
+    <label class="switch">
+        <input type="checkbox" id="styleToggle" checked>
+        <span class="toggle-label on-label">On</span>
+    </label>
+    <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="toggle-label dark-label">🌙</span>
+    </label>
+</div>
+
+<script>
+    //on/off toggle to disable stylesheet
+    document.getElementById('styleToggle').addEventListener('change', function () {
+        const stylesheet = document.querySelector("link[href*='classless'][href$='.css']");
+        if (stylesheet) {
+            stylesheet.disabled = !stylesheet.disabled;
+        }
+    });
+
+    //dark more toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    function setColorScheme(scheme) {
+        document.documentElement.setAttribute('color-scheme', scheme);
+        localStorage.setItem('color-scheme', scheme);
+    }
+
+    function getColorScheme() {
+        let scheme = localStorage.getItem('color-scheme');
+        if (scheme) {
+            return scheme;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    setColorScheme(getColorScheme());
+
+    darkModeToggle.addEventListener('change', function () {
+        setColorScheme(this.checked ? 'dark' : 'light');
+    });
+
+    darkModeToggle.checked = getColorScheme() === 'dark';
+</script>
+
+<main>
+        <article>
+            <h3>Rendering LaTeX</h3>
+
+                <p>A set of quasi-static force balance equations for the rover above can be written as:</p>
+                
+                $$\begin{bmatrix}
+                    &  I &  &  ... &  & I & \\ 
+                    0 &  -p_1^z & p_1^y & & 0 & -p_4^z & p_4^y \\ 
+                    p_1^z &  0 & -p_1^x & ... &  p_4^z &  0 & -p_4^x \\ 
+                    -p_1^y & p_1^x &  0 & & -p_4^y & p_4^x &  0 \\
+                    \end{bmatrix} \cdot 
+                    \begin{bmatrix}
+                    f_1\\ 
+                    ...\\ 
+                    f_4\\
+                \end{bmatrix} = f_s$$
+
+                <p>
+                    As we keep reading, we find that a crucial problem for over-constrained rovers is that 
+                    each wheel is controlled independently in a closed-loop manner. This results in one wheel 
+                    speeding up while another wheel slowing down to get up to its speed set point under 
+                    different loading proﬁles. One way to reduce slippage is that of minimizing the difference 
+                    between the tractive efforts exchanged by the robot's wheels with the ground.
+                </p>
+        </article>
+</main>
+
+<footer>
+    <small>Made with 💗 by
+        <a href="https://digitallytailored.com/" target="_blank" title="Digitally Tailored - Custom Web Solutions"
+           aria-label="Made with love by Digitally Tailored, experts in custom website solutions and web design and development">Digitally
+            Tailored</a></small>
+</footer>
+
+</body>
+</html>
