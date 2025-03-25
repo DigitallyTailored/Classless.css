@@ -4,7 +4,7 @@
  * MIT License
  */
 
-:root {
+ :root {
     /* Modern Color Palette */
     --primary: #364153;
     --primary-contrast: #202732;
@@ -66,6 +66,7 @@
     --border-radius-xl: 1.5rem;
     --border-radius-full: 9999px;
     --container-max-width: 1200px;
+    --input-padding-factor: 0.75;
 
     /* Animation */
     --transition-base: all 0.2s ease-in-out;
@@ -379,7 +380,7 @@ textarea {
     display: block;
     width: 100%;
     margin-bottom: var(--spacing-base);
-    padding: calc(var(--spacing-base) * 0.75);
+    padding: calc(var(--spacing-base) * var(--input-padding-factor));
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     background-color: var(--body-bg);
