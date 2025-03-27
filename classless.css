@@ -4,7 +4,7 @@
  * MIT License
  */
 
- :root {
+:root {
     /* Modern Color Palette */
     --primary: #364153;
     --primary-contrast: #202732;
@@ -686,6 +686,22 @@ article, section, aside {
     box-shadow: var(--shadow);
     transition: var(--transition-base);
     border: 1px solid var(--border-color);
+}
+
+/* https://caniuse.com/mdn-css_properties_interpolate-size */
+details {
+    interpolate-size: allow-keywords;
+}
+
+/* https://caniuse.com/mdn-css_selectors_details-content */
+details::details-content {
+    transition: block-size 0.3s, content-visibility 0.3s allow-discrete;
+    overflow: hidden;
+    block-size: 0;
+}
+
+details[open]::details-content {
+    block-size: auto;
 }
 
 /*
