@@ -10,7 +10,7 @@ function minifyCSS(css) {
         .replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, '') // Remove comments and whitespace
         .replace(/ {2,}/g, ' ') // Remove multiple spaces
         .replace(/ ([{:}]) /g, '$1') // Remove spaces around brackets and colons
-        .replace(/([;,]) /g, '$1') // Remove spaces after semicolons and commas
+        .replace(/([;:,]) /g, '$1') // Remove spaces after semicolons, colons and commas
         .replace(/ !/g, '!'); // Remove spaces before important
 }
 
