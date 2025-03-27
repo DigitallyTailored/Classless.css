@@ -405,6 +405,7 @@ input[type="color"] {
 
 input[type="range"] {
     padding: 0;
+    box-shadow: none;
 }
 
 /* Input styling with icons */
@@ -485,6 +486,10 @@ textarea:focus {
     outline: none;
     border-color: var(--border-color);
     box-shadow: 0 0 0px 3px rgba(102, 118, 201, 0.54);
+}
+
+input[type="range"]:focus {
+    box-shadow: none;
 }
 
 textarea {
