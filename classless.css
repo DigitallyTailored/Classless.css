@@ -218,8 +218,7 @@ a:not(nav a):hover:before {
 }
 
 a[target="_blank"]:after {
-    /* ⤤ symbol */
-    content: "[\2924]";
+    content: "[↗]";
     display: inline-block;
     margin-left: 0.25em;
     font-size: 0.6em;
