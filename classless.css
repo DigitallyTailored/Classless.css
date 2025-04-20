@@ -339,7 +339,7 @@ tr:hover td {
 }
 
 /* Forms */
-form {
+form, fieldset {
     background-color: var(--card-bg);
     padding: var(--spacing-base);
     border-radius: var(--border-radius-lg);
