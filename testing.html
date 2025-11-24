@@ -1,0 +1,39 @@
+<style>
+    /* Basic button styling */
+    button {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f0f0f0;
+        min-width: 100px;
+        position: relative;
+    }
+
+    /* Create the loading spinner using ::after pseudo-element */
+    button:empty::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 8px);
+        left: calc(50% - 8px);
+        width: 16px;
+        height: 16px;
+        border: 3px solid rgba(0, 0, 0, 0.1);
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    /* Spinner animation */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+</style>
+
+<button>Normal Button</button>
+<button></button>
+
+
+<button disabled>Normal Button</button>
+<button disabled></button>
