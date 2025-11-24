@@ -98,6 +98,10 @@
     --link-color: #61aeff;
     --progress-color: #2f9e45;
     --input-icon-color: #e2e8f0;
+
+    --gradient-primary: linear-gradient(135deg, var(--primary-invert) 0%, var(--primary-invert) 100%);
+
+    /* Dark mode shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
@@ -267,7 +271,7 @@ pre code {
 }
 
 blockquote {
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--primary-contrast);
     padding: var(--spacing-base);
     margin-bottom: var(--spacing-base);
     font-style: italic;
@@ -278,6 +282,7 @@ blockquote {
 
 :root[color-scheme="dark"] blockquote {
     background-color: rgba(255, 255, 255, 0.03);
+    border-color: var(--primary-invert);
 }
 
 hr {
@@ -525,8 +530,15 @@ input[type="submit"] {
     overflow: hidden;
 }
 
-/* Create the loading spinner using ::after pseudo-element */
-button:empty::after {
+:root[color-scheme="dark"] button,
+:root[color-scheme="dark"] input[type="button"],
+:root[color-scheme="dark"] input[type="reset"],
+:root[color-scheme="dark"] input[type="submit"] {
+    background: var(--primary);
+}
+
+/* Create the loading spinner for empty buttons using ::before pseudo-element */
+button:empty::before {
     content: "";
     position: absolute;
     top: calc(50% - 12px);
@@ -538,6 +550,7 @@ button:empty::after {
     border-bottom: 3px solid transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    z-index: 1;
 }
 
 /* Spinner animation */
@@ -546,10 +559,11 @@ button:empty::after {
     100% { transform: rotate(360deg); }
 }
 
-button:after,
-input[type="button"]:after,
-input[type="reset"]:after,
-input[type="submit"]:after {
+/* Hover effect overlay using ::after */
+button::after,
+input[type="button"]::after,
+input[type="reset"]::after,
+input[type="submit"]::after {
     content: '';
     position: absolute;
     top: 0;
@@ -560,10 +574,10 @@ input[type="submit"]:after {
     transition: var(--transition-base);
 }
 
-button:hover:after,
-input[type="button"]:hover:after,
-input[type="reset"]:hover:after,
-input[type="submit"]:hover:after {
+button:hover::after,
+input[type="button"]:hover::after,
+input[type="reset"]:hover::after,
+input[type="submit"]:hover::after {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -596,30 +610,35 @@ input[type="submit"]:disabled {
 
 /* Button Variants */
 button.success,
+:root[color-scheme="dark"] button.success,
 input[type="button"].success,
 input[type="submit"].success {
     background: var(--gradient-success);
 }
 
 button.danger,
+:root[color-scheme="dark"] button.danger,
 input[type="button"].danger,
 input[type="submit"].danger {
     background: var(--gradient-danger);
 }
 
 button.warning,
+:root[color-scheme="dark"] button.warning,
 input[type="button"].warning,
 input[type="submit"].warning {
     background: var(--gradient-warning);
 }
 
 button.info,
+:root[color-scheme="dark"] button.info,
 input[type="button"].info,
 input[type="submit"].info {
     background: var(--gradient-info);
 }
 
 button.outline,
+:root[color-scheme="dark"] button.outline,
 input[type="button"].outline,
 input[type="submit"].outline {
     background: transparent;
@@ -628,6 +647,7 @@ input[type="submit"].outline {
 }
 
 button.outline:hover,
+:root[color-scheme="dark"] button.outline:hover,
 input[type="button"].outline:hover,
 input[type="submit"].outline:hover {
     background-color: var(--primary);
@@ -882,3 +902,4 @@ progress:indeterminate::-webkit-progress-bar {
     background-size: 200% 100%;
     animation: moveStripe 2s linear infinite;
 }
+
